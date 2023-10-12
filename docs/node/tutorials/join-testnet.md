@@ -1,13 +1,13 @@
 ---
 order: 2
-title: Joining Mainnet
+title: Joining Testnet
 ---
 
-# Join the Crossfi Chain Mainnet
+# Join the CrossFi Testnet
 
-The current Crossfi Chain mainnet, `crossfi-mainnet-1`.
+The current CrossFi testnet, `crossfi-testnet-1`.
 
-**This guide includes full instructions for joining the mainnet either as an archive/full node or a pruned node.**
+**This guide includes full instructions for joining the testnet either as an archive/full node or a pruned node.**
 
 For instructions to boostrap a node via Quicksync or State Sync, see the [Quickstart Guide](https://hub.cosmos.network/main/getting-started/quickstart.html)
 
@@ -35,11 +35,11 @@ For instructions to join as a validator, please also see the [Validator Guide](h
 - [Cosmovisor](#cosmovisor)
 - [Running via Background Process](#running-via-background-process)
 - [Exporting State](#exporting-state)
-- [Verify Mainnet](#verify-mainnet)
+- [Verify testnet](#verify-testnet)
 
 ### Background
 
-The current Crossfi Chain mainnet `crossfi-mainnet-1`. Visit the [migration section](https://github.com/cosmos/crossfid/tree/main/docs/migration) of the Hub's docs for more information on previous chain migrations.
+The current Crossfi Chain testnet `crossfi-testnet-1`.
 
 ## Explorers
 
@@ -69,14 +69,14 @@ Running a full archive node can be resource intensive as the full current `cross
 
 ## General Configuration
 
-Make sure to walk through the basic setup and configuration. Operators will need to initialize `crossfidd`, download the genesis file for `crossfi-1`, and set persistent peers and/or seeds for startup.
+Make sure to walk through the basic setup and configuration. Operators will need to initialize `crossfid`, download the genesis file for `crossfi-1`, and set persistent peers and/or seeds for startup.
 
 ### Initialize Chain
 
 ```bash
-wget https://github.com/crossfiio/crossfi-2-node/releases/download/v0.1.0/crossfi-2-node._v0.1.0_darwin_arm64.tar.gz && tar -xf crossfi-2-node._v0.1.0_darwin_arm64.tar.gz
-git clone https://github.com/crossfiio/mainnet.git
-./crossfidd start --home ./mainnet
+wget https://github.com/crossfichain/crossfi-2-node/releases/download/v0.1.0/crossfi-2-node._v0.1.0_darwin_arm64.tar.gz && tar -xf crossfi-2-node._v0.1.0_darwin_arm64.tar.gz
+git clone https://github.com/crossfichain/testnet.git
+./crossfid start --home ./testnet
 ```
 
 ### Seeds & Peers
@@ -123,7 +123,7 @@ pruning-keep-every = "1000"
 pruning-interval = "10"
 ```
 
-Passing a flag when starting `crossfid` will always override settings in the `app.toml` file. To change the node's pruning setting to `everything` mode then pass the `---pruning everything` flag when running `crossfidd start`.
+Passing a flag when starting `crossfid` will always override settings in the `app.toml` file. To change the node's pruning setting to `everything` mode then pass the `---pruning everything` flag when running `crossfid start`.
 
 > **Note**: If running the node with pruned state, it will not be possible to query the heights that are not in the node's store.
 
@@ -190,9 +190,7 @@ Blocksync is faster than traditional consensus and syncs the chain from genesis 
 
 When syncing via Blocksync, node operators will either need to manually upgrade the chain or set up [Cosmovisor](#Cosmovisor) to upgrade automatically.
 
-For more information on performing the manual upgrades, see [Releases & Upgrades](#Releases-amp=-Upgrades).
-
-It is possible to sync from previous versions of the Crossfi Chain. See the matrix below for the correct `crossfid` version. See the [mainnet archive](https://github.com/cosmos/mainnet) for historical genesis files.
+It is possible to sync from previous versions of the Crossfi Chain. See the matrix below for the correct `crossfid` version. See the [testnet archive](https://github.com/cosmos/testnet) for historical genesis files.
 
 | Chain Id      | Crossfi Version |
 | -----------   |------------------|
@@ -200,10 +198,10 @@ It is possible to sync from previous versions of the Crossfi Chain. See the matr
 
 ##### Getting Started
 
-Start crossfid to begin syncing with the `skip-invariants` flag. For more information on this see [Verify Mainnet](#Verify-Mainnet).
+Start crossfid to begin syncing with the `skip-invariants` flag. For more information on this see [Verify testnet](#Verify-testnet).
 
 ```bash
-crossfidd start --x-crisis-skip-assert-invariants
+crossfid start --x-crisis-skip-assert-invariants
 ```
 
 ### State Sync
@@ -234,16 +232,16 @@ enable = true
 #
 # For Cosmos SDK-based chains, trust_period should usually be about 2/3 of the unbonding time (~2
 # weeks) during which they can be financially punished (slashed) for misbehavior.
-rpc_servers = "https://cosmos-rpc.polkachu.com:443,https://rpc-cosmoshub-ia.cosmosia.notional.ventures:443,https://rpc.cosmos.network:443"
-trust_height = 8959784
-trust_hash = "3D8F12EA302AEDA66E80939F7FC785206692F8B6EE6F727F1655F1AFB6A873A5"
+rpc_servers = ""
+trust_height = 0
+trust_hash = ""
 trust_period = "168h0m0s"
 ```
 
 Start crossfid to begin state sync. It may take take some time for the node to acquire a snapshot, but the command and output should look similar to the following:
 
 ```bash
-$ crossfidd start --x-crisis-skip-assert-invariants
+$ crossfid start --x-crisis-skip-assert-invariants
 
 ...
 
@@ -255,11 +253,7 @@ $ crossfidd start --x-crisis-skip-assert-invariants
 > INF Applied snapshot chunk to ABCI app chunk=0 format=1 height=8967000 module=statesync total=45
 ```
 
-Once state sync successfully completes, the node will begin to process blocks normally. If state sync fails and the node operator encounters the following error:  `State sync failed err="state sync aborted"`, either try restarting `crossfidd` or running `crossfidd unsafe-reset-all` (make sure to backup any configuration and history before doing this).
-
-### Quicksync
-
-Quicksync.io offers several  daily snapshots of the Crossfi Chain with varying levels of pruning (`archive` 1.4TB, `default` 540GB, and `pruned` 265GB). For downloads and installation instructions, visit the [Cosmos Quicksync guide](https://quicksync.io/networks/cosmos.html).
+Once state sync successfully completes, the node will begin to process blocks normally. If state sync fails and the node operator encounters the following error:  `State sync failed err="state sync aborted"`, either try restarting `crossfid` or running `crossfid unsafe-reset-all` (make sure to backup any configuration and history before doing this).
 
 ## Snapshots
 
@@ -288,41 +282,6 @@ snapshot-interval = 1000
 snapshot-keep-recent = 10
 ```
 
-## Releases & Upgrades
-
-**See all [crossfid Releases](https://github.com/cosmos/crossfid/releases)**
-
-The most up to date release of crossfid is [`V8.0.0`](https://github.com/cosmos/crossfid/releases/tag/v8.0.0). For those that want to use state sync or quicksync to get their node up to speed, starting with the most recent version of crossfid is sufficient.
-
-To sync an archive or full node from scratch, it is important to note that you must start with [`V4.2.1`](https://github.com/cosmos/crossfid/releases/tag/v4.2.1) and proceed through two different upgrades Delta at block height `6910000` and Vega at block height `8695000`.
-
-The process is summarized below but make sure to follow the manual upgrade instructions for each release:
-
-**[Delta Instructions](https://github.com/cosmos/crossfid/blob/main/docs/migration/crossfi-1-delta-upgrade.md#Upgrade-will-take-place-July-12,-2021)**
-Once `V4` reaches the upgrade block height, expect the chain to halt and to see the following message:
-
-```bash
-ERR UPGRADE "Gravity-DEX" NEEDED at height: 6910000: v5.0.0-4760cf1f1266accec7a107f440d46d9724c6fd08
-```
-
-Make sure to save a backup of `~/.crossfid` in case rolling back is necessary.
-
-Install crossfid [`V5.0.0`](https://github.com/cosmos/crossfid/releases/tag/v5.0.0) and restart the daemon.
-
-**[Vega Instructions](https://github.com/cosmos/crossfid/blob/main/docs/migration/crossfi-1-vega-upgrade.md)**
-
-Once `V5` reaches the upgrade block height, the chain will halt and display the following message:
-
-```bash
-ERR UPGRADE "Vega" NEEDED at height: 8695000
-
-```
-
-Again, make sure to backup `~/.crossfid`
-
-Install crossfid [`V6.0.0`](https://github.com/cosmos/crossfid/releases/tag/v6.0.0) and restart the daemon.
-
-
 ## Cosmovisor
 
 Cosmovisor is a process manager developed to relieve node operators of having to manually intervene every time there is an upgrade. Cosmovisor monitors the governance module for upgrade proposals; it will take care of downloading the new binary, stopping the old one, switching to the new one, and restarting.
@@ -341,7 +300,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which crossfidd) start
+ExecStart=$(which crossfid) start
 Restart=always
 RestartSec=3
 LimitNOFILE=4096
@@ -355,12 +314,12 @@ If using Cosmovisor then make sure to add the following:
 
 ```bash
 Environment="DAEMON_HOME=$HOME/.crossfid"
-Environment="DAEMON_NAME=crossfidd"
+Environment="DAEMON_NAME=crossfid"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 ```
 
-After the `LimitNOFILE` line and replace `$(which crossfidd)` with `$(which cosmovisor)`.
+After the `LimitNOFILE` line and replace `$(which crossfid)` with `$(which cosmovisor)`.
 
 Run the following to setup the daemon:
 
@@ -386,31 +345,31 @@ crossfid can dump the entire application state into a JSON file. This applicatio
 Export state with:
 
 ```bash
-crossfidd export > [filename].json
+crossfid export > [filename].json
 ```
 
 It is also possible to export state from a particular height (at the end of processing the block of that height):
 
 ```bash
-crossfidd export --height [height] > [filename].json
+crossfid export --height [height] > [filename].json
 ```
 
 If planning to start a new network from the exported state, export with the `--for-zero-height` flag:
 
 ```bash
-crossfidd export --height [height] --for-zero-height > [filename].json
+crossfid export --height [height] --for-zero-height > [filename].json
 ```
 
-## Verify Mainnet
+## Verify testnet
 
 Help to prevent a catastrophe by running invariants on each block on your full
-node. In essence, by running invariants the node operator ensures that the state of mainnet is the correct expected state. One vital invariant check is that no atoms are being created or destroyed outside of expected protocol, however there are many other invariant checks each unique to their respective module. Because invariant checks are computationally expensive, they are not enabled by default. To run a node with these checks start your node with the assert-invariants-blockly flag:
+node. In essence, by running invariants the node operator ensures that the state of testnet is the correct expected state. One vital invariant check is that no atoms are being created or destroyed outside of expected protocol, however there are many other invariant checks each unique to their respective module. Because invariant checks are computationally expensive, they are not enabled by default. To run a node with these checks start your node with the assert-invariants-blockly flag:
 
 ```bash
-crossfidd start --assert-invariants-blockly
+crossfid start --assert-invariants-blockly
 ```
 
-If an invariant is broken on the node, it will panic and prompt the operator to send a transaction which will halt mainnet. For example the provided message may look like:
+If an invariant is broken on the node, it will panic and prompt the operator to send a transaction which will halt testnet. For example the provided message may look like:
 
 ```bash
 invariant broken:
@@ -418,6 +377,6 @@ invariant broken:
         pool.NotBondedTokens: 100
         sum of account tokens: 101
     CRITICAL please submit the following transaction:
-        crossfidd tx crisis invariant-broken staking supply
+        crossfid tx crisis invariant-broken staking supply
 
 ```
