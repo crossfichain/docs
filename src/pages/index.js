@@ -9,7 +9,7 @@ import LinkCard from "../components/LinkCard";
 
 
 const DOCUMENTATION_DIRECTORIES = [{
-    title: 'CrossFi Chain',
+    title: 'CrossFi overview',
     description: 'Full review of how the CrossFi Blockchain works',
     icon: Diamond,
     link: '/docs/docs/chain/Architecture/Basic information'

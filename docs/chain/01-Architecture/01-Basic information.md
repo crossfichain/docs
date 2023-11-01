@@ -1,7 +1,8 @@
+Basic information.md
 # Basic information
 
 :::info
- 
+
 CrossFi Chain is a layer 1 blockchain with a modular architecture. It consists of two integral piles, Cosmos and EVM. Each pile is responsible for its specific functionality, with their work completely synchronized as a single organism.
 
 :::
@@ -16,8 +17,9 @@ Responsible for consensus, production and verification of blocks, transactions m
 ## EVM
 
 Responsible for interaction with smart contracts and launch of decentralized applications, products and services. The EVM part is based on:
--Ethermint
--Evmos
+
+- Ethermint
+- Evmos
 
 :::info
 
