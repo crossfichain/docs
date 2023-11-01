@@ -12,9 +12,9 @@ const DOCUMENTATION_DIRECTORIES = [{
     title: 'CrossFi Chain',
     description: 'Full review of how the CrossFi Blockchain works',
     icon: Diamond,
-    link: '/docs/node/api/explorer-api'
+    link: '/docs/docs/chain/Architecture/Basic information'
 }, {
-    title: 'Devs', description: 'Find out how to start developing with CrossFi Chain', icon: Screen, link: '/#'
+    title: 'Devs', description: 'Find out how to start developing with CrossFi Chain', icon: Screen, link: '/docs/docs/devs/api/explorer-api'
 }]
 export default function Home() {
 
