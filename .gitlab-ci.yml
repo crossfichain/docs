@@ -1,0 +1,4 @@
+include:
+  - project: devops/pipelines/xfi-pipelines
+    ref: main
+    file: crossfi/crossfi.docs.front.yml
