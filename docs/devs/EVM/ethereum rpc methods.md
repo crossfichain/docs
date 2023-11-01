@@ -76,8 +76,8 @@ The examples also do not include the URL/IP & port combination which must be the
 | [`personal_sendTransaction`](#personal-sendtransaction)                           | Personal  | ✔           | ❌      |                    |
 | [`personal_sign`](#personal-sign)                                                 | Personal  | ✔           | ❌      |                    |
 | [`personal_ecRecover`](#personal-ecrecover)                                       | Personal  | ✔           | ❌      |                    |
-| [`personal_initializeWallet`](#personal_initializewallet)                                       | Personal  | ✔           | ❌      ||
-| [`personal_unpair`](#personal_unpair)                                       | Personal  | ✔           | ❌      |                    |
+| [`personal_initializeWallet`](#personal_initializewallet)                         | Personal  | ✔           | ❌      |                    |
+| [`personal_unpair`](#personal_unpair)                                             | Personal  | ✔           | ❌      |                    |
 | `db_putString`                                                                    | DB        |             |        |                    |
 | `db_getString`                                                                    | DB        |             |        |                    |
 | `db_putHex`                                                                       | DB        |             |        |                    |
@@ -127,13 +127,13 @@ The examples also do not include the URL/IP & port combination which must be the
 | `debug_startGoTrace`                                                              | Debug     | ✔           |        |                    |
 | `debug_stopCPUProfile`                                                            | Debug     | ✔           |        |                    |
 | `debug_stopGoTrace`                                                               | Debug     | ✔           |        |                    |
-| [`debug_traceBlock`](#debug-traceblock)                                                                | Debug     | ✔           |        |                    |
-| [`debug_traceBlockByNumber`](#debug-traceblockbynumber)                                                        | Debug     | ✔ |        |                    |
-| [`debug_traceBlockByHash`](#debug-traceblockbyhash)                                                          | Debug     | ✔ |        |                    |
+| [`debug_traceBlock`](#debug-traceblock)                                           | Debug     | ✔           |        |                    |
+| [`debug_traceBlockByNumber`](#debug-traceblockbynumber)                           | Debug     | ✔           |        |                    |
+| [`debug_traceBlockByHash`](#debug-traceblockbyhash)                               | Debug     | ✔           |        |                    |
 | `debug_traceBlockFromFile`                                                        | Debug     |             |        |                    |
 | `debug_standardTraceBlockToFile`                                                  | Debug     |             |        |                    |
 | `debug_standardTraceBadBlockToFile`                                               | Debug     |             |        |                    |
-| [`debug_traceTransaction`](#debug-tracetransaction)                                                          | Debug     | ✔           |        |                    |
+| [`debug_traceTransaction`](#debug-tracetransaction)                               | Debug     | ✔           |        |                    |
 | `debug_verbosity`                                                                 | Debug     |             |        |                    |
 | `debug_vmodule`                                                                   | Debug     |             |        |                    |
 | `debug_writeBlockProfile`                                                         | Debug     | ✔           |        |                    |

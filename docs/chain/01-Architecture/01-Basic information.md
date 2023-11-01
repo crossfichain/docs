@@ -1,4 +1,3 @@
-Basic information.md
 # Basic information
 
 :::info
