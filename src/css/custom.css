@@ -6,25 +6,142 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-color-primary: #0cc2ff;
+    --ifm-color-primary-dark: #00b4f0;
+    --ifm-color-primary-darker: #00aae3;
+    --ifm-color-primary-darkest: #008cbb;
+    --ifm-color-primary-light: #27c9ff;
+    --ifm-color-primary-lighter: #34ccff;
+    --ifm-color-primary-lightest: #5cd6ff;
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+    --ifm-color-primary: #0cc2ff;
+    --ifm-color-primary-dark: #00b4f0;
+    --ifm-color-primary-darker: #00aae3;
+    --ifm-color-primary-darkest: #008cbb;
+    --ifm-color-primary-light: #27c9ff;
+    --ifm-color-primary-lighter: #34ccff;
+    --ifm-color-primary-lightest: #5cd6ff;
+    --ifm-navbar-background-color: #1F2332;
+    --ifm-background-color: #1b1b1d;
+    --ifm-background-surface-color: #00040f;
+    --ifm-font-color-base: #eeeeee;
+    --ifm-navbar-link-color: #8d8f96;
+
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.font-h1 {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 112.5% */
+}
+
+.font-h3 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.font-body1 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.icon-link {
+    transition: all 0.3s ease;
+}
+
+.icon-link:hover {
+    opacity: 0.7;
+}
+
+.icon-link:before {
+    content: "";
+    display: flex;
+    height: 24px;
+    width: 24px;
+    background: no-repeat center center;
+}
+
+.telegram-link:before {
+    background-image: url(/icons/networks/telegram.svg);
+}
+
+.github-link:before {
+    background-image: url(/icons/networks/github.svg);
+}
+
+.medium-link:before {
+    background-image: url(/icons/networks/medium.svg);
+}
+
+.x-link:before {
+    background-image: url(/icons/networks/x.svg);
+}
+
+.facebook-link:before {
+    background-image: url(/icons/networks/facebook.svg);
+}
+
+.discord-link:before {
+    background-image: url(/icons/networks/discord.svg);
+}
+
+.linkedin-link:before {
+    background-image: url(/icons/networks/linkedin.svg);
+}
+
+.navbar__items--right {
+    gap: 15px;
+    margin-right: 20px;
+}
+
+.clean-btn {
+    color: #8D8F96;
+    margin-left: 20px;
+}
+
+.navbar__items--right .navbar__item {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media screen and (max-width: 996px) {
+    .menu__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .menu__list-item {
+        width: fit-content;
+    }
+
+    .menu__list-item:first-child {
+        width: 100%;
+    }
+
+    .icon-link:before {
+        background-size: 32px;
+    }
+
+    .clean-btn {
+        margin-left: 0;
+        justify-self: flex-end;
+    }
+
+    .navbar-sidebar__brand {
+        display: grid;
+        grid-template-columns: auto 1fr 1fr;
+        align-items: center;
+        grid-gap: 0;
+    }
 }

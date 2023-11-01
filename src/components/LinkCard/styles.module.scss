@@ -1,0 +1,32 @@
+.wrapper {
+  text-decoration: none !important;
+}
+
+.linkCardWrapper {
+  display: flex;
+  width: 379px;
+  height: 100%;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  gap: 20px;
+  color: var(--ifm-font-color-base);
+  border-radius: 16px;
+  border: 1px solid  rgba(255, 255, 255, 0.30);
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(122deg, rgba(255, 255, 255, 0.10) 24.4%, rgba(255, 255, 255, 0.00) 69.12%), rgba(1, 5, 22, 0.05);
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.icon {
+  path {
+    fill: var(--ifm-font-color-base);
+  }
+}
