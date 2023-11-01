@@ -14,7 +14,7 @@ const config = {
   url: 'https://crossfichain.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -43,7 +43,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://gitlab.dfmx.ae/xfi/xfi-front/crossfi.docs.front',
+          // editUrl: 'https://gitlab.dfmx.ae/xfi/xfi-front/crossfi.docs.front',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
